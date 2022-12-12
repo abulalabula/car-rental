@@ -4,16 +4,17 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="usertable")
-@NamedQuery(name = "checklogin", query = "FROM UserLogin WHERE email=:email AND password=:password")
-public class UserLogin {
+//@NamedQuery(name = "checkregister", query = "FROM UserRegister WHERE email=:email AND password=:password")
+public class UserRegister {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	long userid; // database: BIGINT
 	@Basic // Default
@@ -61,7 +62,6 @@ public class UserLogin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-		
-	
-
 }
+
+
